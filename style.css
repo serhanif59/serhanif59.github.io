@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  line-height: 3ch;
+  font-family: "Arial", Helvetica, sans-serif;
+}
+
+header {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  height: 160px;
+  width: 100%;
+  background-color: navy;
+
+  border-bottom: 1px solid;
+}
+
+#photoId {
+  width: 140px;
+  height: 140px;
+  background-image: url("photo.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 1px solid;
+}
+
+.bandeau {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: lightgray;
+  height: 100%;
+  width: 100%;
+}
+
+.bandeau p {
+  margin: 10px;
+  font-size: 3ch;
+}
+
+#link {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  list-style-type: none;
+}
+li {
+  margin: 10px;
+  padding-left: 5px;
+  border-left: 1px;
+  border-left-style: solid;
+}
+button:hover {
+  color: gray;
+  cursor: pointer;
+}
+button {
+  border: none;
+  font-size: 20px;
+  padding: 10px 20px;
+  /*background-color: cornflowerblue;*/
+  background-color: navy;
+  color: lightgray;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  top: 140px;
+  bottom: 70px;
+  margin: 20px 0 0 0;
+  background-size: cover;
+  background-image: url("fondEcran.jpg");
+  background-repeat: no-repeat;
+}
+
+#sectionText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50%;
+  height: 1500px;
+}
+
+#sectionText div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: pink;
+  padding: 10px;
+  margin: 0 10px 0 10px;
+
+  border-radius: 2%;
+  border: 2px solid;
+}
+
+#sectionText div p {
+  margin: 10px;
+  text-align: center;
+}
+
+#imageRel {
+  display: flex;
+  margin: 40px 0 40px 0;
+  width: 50%;
+  min-height: 300px;
+  position: fixed;
+  right: 0;
+  bottom: 70px;
+  top: 140px;
+  justify-content: center;
+  align-items: center;
+  /*background-color: white;*/
+  border-radius: 25%;
+  border: 2px dotted;
+}
+
+#imageRel img {
+  width: 70%;
+  height: 70%;
+  object-fit: scale-down;
+}
+
+.notDisplayed {
+  display: none;
+}
+
+footer {
+  display: flex;
+  gap: 20px;
+  height: 25px;
+  align-items: center;
+  color: lightgray;
+  font-size: 10px;
+  background-color: navy;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  border-top: 1px solid;
+}
+footer h1 {
+  margin: 10px;
+  font-size: 12px;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  ul {
+    display: flex;
+    flex-direction: column;
+    background: navy;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    padding: 10px 0;
+    transform: scaleY(0);
+    transform-origin: center top;
+    transition: all 0.3s ease;
+  }
+  ul.open {
+    transform: scaleY(1);
+  }
+  ul li {
+    padding: 10px 0;
+    text-align: center;
+    border-left: 0px;
+    border-bottom: 1px solid;
+  }
+  #burger {
+    width: 30px;
+    height: 2px;
+    background: lightgray;
+    display: inline-block;
+    position: relative;
+  }
+
+  #link:hover #burger,
+  #link:hover #burger::before,
+  #link:hover #burger::after {
+    cursor: pointer;
+    background: gray;
+  }
+
+  #burger::before,
+  #burger::after {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: lightgray;
+    display: inline-block;
+    position: absolute;
+    transform-origin: center;
+    transition: all 0.3s ease;
+  }
+  #burger::before {
+    top: -7px;
+  }
+  #burger::after {
+    top: 7px;
+  }
+
+  #burger.open {
+    background: transparent;
+  }
+  #burger.open::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  #burger.open::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  #imageRel.open {
+    visibility: hidden;
+  }
+  #sectionText {
+    height: 2000px;
+  }
+}

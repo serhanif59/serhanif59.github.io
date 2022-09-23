@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div id="photoId"></div>
+    <div id="bande" class="bandeau">
+      <p>
+        Serhani Ali<br />
+        Web Developpement
+      </p>
+      <a id="link"><span id="burger"></span></a>
+      <ul>
+        <li>
+          <button id="project">Projet</button>
+        </li>
+        <li>
+          <button id="about">A propos</button>
+        </li>
+        <li>
+          <button id="experience">Expériences</button>
+        </li>
+        <li>
+          <button id="technology">Technologies</button>
+        </li>
+        <li>
+          <button id="contact">Contact</button>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <main id="main">
+    <div id="sectionText"></div>
+    <div id="imageRel"></div>
+  </main>
+  <footer>
+    <h1>&copy;2022</h1>
+    <h1>Serhani Ali</h1>
+  </footer>
+
+  <script>
+    let ichangeMemo = -1;
+
+    let idSlide = 0;
+
+    let timeOutSlide;
+
+    let link = document.getElementById("link");
+    let burger = document.getElementById("burger");
+    let ul = document.querySelector("ul");
+
+    /* gestionnaire d'événement sur le a#link pour venir changer l'attribution de la classe .open à la ul et au span#burger */
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      burger.classList.toggle("open");
+      ul.classList.toggle("open");
+      document.getElementById("imageRel").classList.toggle("open");
+    });
+
+    document.getElementById("project").onclick = function () {
+      changeMainCont(0);
+    };
+    document.getElementById("about").onclick = function () {
+      changeMainCont(1);
+    };
+    document.getElementById("experience").onclick = function () {
+      changeMainCont(2);
+    };
+    document.getElementById("technology").onclick = function () {
+      changeMainCont(3);
+    };
+
+    document.getElementById("contact").onclick = function () {
+      changeMainCont(3);
+    };
+
+    window.onload = function () {
+      changeMainCont(0);
+    };
+
+    window.onscroll = function () {
+      changeImagesRelText();
+    };
+
+    function changeClipSlide() {
+      const image = document.getElementById("imageRel");
+
+      for (let i = 0; i < image.children.length; i++) {
+        image.children.item(i).style.display = "none";
+      }
+      idSlide++;
+      if (idSlide > image.children.length) {
+        idSlide = 1;
+      }
+      image.children.item(idSlide - 1).style.display = "block";
+      timeOutSlide = setTimeout(changeClipSlide, 2000);
+    }
+
+    function changeMainCont(Id) {
+      let main = document.getElementById("main");
+      const xhttp = new XMLHttpRequest();
+
+      if (ul.classList.contains("open")) {
+        ul.classList.toggle(
+          "open"
+        ); /* Ceci pour fermer le menu en format mobile */
+        burger.classList.toggle("open");
+        document.getElementById("imageRel").classList.toggle("open");
+      }
+
+      xhttp.onload = function () {
+        if (xhttp.status === 200) {
+          main.innerHTML = this.responseText;
+          document.documentElement.scrollTop = 0; /*remise a zero barre defilement */
+          ichangeMemo = -1;
+          clearTimeout(timeOutSlide); /* on arrete l'affichage slideshow */
+          changeImagesRelText();
+        } else {
+          alert("Section Inexistante");
+        }
+      };
+
+      xhttp.open("GET", "main" + Id + ".html");
+      xhttp.send();
+    }
+
+    function changeImagesRelText() {
+      idSlide = 0;
+      const hScroll =
+        document.documentElement.scrollHeight -
+        document.documentElement.offsetHeight;
+      const nDivText = document.getElementById("sectionText").childElementCount;
+      const inter = hScroll / nDivText;
+      let iChange = parseInt(document.documentElement.scrollTop / inter);
+      if (iChange >= nDivText) iChange = nDivText - 1;
+      console.log("iChange = " + iChange);
+      console.log("nb Text = " + nDivText);
+
+      if (ichangeMemo !== iChange) {
+        clearTimeout(timeOutSlide); /* on arrete l'affichage slideshow */
+        document.getElementById("imageRel").innerHTML = document.getElementById(
+          "imageRel" + iChange
+        ).innerHTML;
+
+        let col;
+        if (iChange % 2 === 0) color = "blue";
+        else color = "palevioletred";
+        document.getElementById("imageRel").style.borderColor = color;
+        document.getElementById("sectionText").style.color = color;
+
+        ichangeMemo = iChange;
+        changeClipSlide();
+      }
+      if (!timeOutSlide) changeClipSlide();
+    }
+  </script>
+</body>
