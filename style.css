@@ -22,8 +22,8 @@ header {
   height: 160px;
   width: 100%;
   background-color: navy;
-
   border-bottom: 1px solid;
+  opacity: 0.8;
 }
 
 #photoId {
@@ -85,15 +85,14 @@ main {
   display: flex;
   flex-direction: row;
   width: 100%;
-  top: 140px;
-  bottom: 70px;
-  margin: 20px 0 0 0;
+
   background-size: cover;
-  background-image: url("fondEcran.jpg");
+  background-image: url("fondEcran3.jpg");
   background-repeat: no-repeat;
 }
 
 #sectionText {
+  margin: 100px 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -114,7 +113,8 @@ main {
   border: 2px solid;
 }
 
-#sectionText div p {
+#sectionText div p,
+#sectionText div h1 {
   margin: 10px;
   text-align: center;
 }
@@ -132,7 +132,7 @@ main {
   align-items: center;
   /*background-color: white;*/
   border-radius: 25%;
-  border: 2px dotted;
+  /*border: 1px dotted;*/
 }
 
 #imageRel img {
@@ -157,6 +157,7 @@ footer {
   bottom: 0;
   width: 100vw;
   border-top: 1px solid;
+  opacity: 0.8;
 }
 footer h1 {
   margin: 10px;
@@ -187,7 +188,7 @@ footer h1 {
     width: 100%;
     left: 0;
     top: 100%;
-    padding: 10px 0;
+    padding: 5px 0;
     transform: scaleY(0);
     transform-origin: center top;
     transition: all 0.3s ease;
@@ -196,10 +197,10 @@ footer h1 {
     transform: scaleY(1);
   }
   ul li {
-    padding: 10px 0;
     text-align: center;
     border-left: 0px;
     border-bottom: 1px solid;
+    max-height: 45px;
   }
   #burger {
     width: 30px;
