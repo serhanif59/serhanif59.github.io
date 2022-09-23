@@ -21,9 +21,9 @@ header {
   position: fixed;
   height: 160px;
   width: 100%;
-  background-color: navy;
+  background-color: darkslategrey;
   border-bottom: 1px solid;
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
 #photoId {
@@ -77,7 +77,7 @@ button {
   font-size: 20px;
   padding: 10px 20px;
   /*background-color: cornflowerblue;*/
-  background-color: navy;
+  background-color: darkslategrey;
   color: lightgray;
 }
 
@@ -105,7 +105,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: pink;
+  background-color: lightgrey;
   padding: 10px;
   margin: 0 10px 0 10px;
 
@@ -117,6 +117,7 @@ main {
 #sectionText div h1 {
   margin: 10px;
   text-align: center;
+  color: blue;
 }
 
 #imageRel {
@@ -152,12 +153,12 @@ footer {
   align-items: center;
   color: lightgray;
   font-size: 10px;
-  background-color: navy;
+  background-color: darkslategrey;
   position: fixed;
   bottom: 0;
   width: 100vw;
   border-top: 1px solid;
-  opacity: 0.8;
+  opacity: 0.95;
 }
 footer h1 {
   margin: 10px;
@@ -183,7 +184,7 @@ footer h1 {
   ul {
     display: flex;
     flex-direction: column;
-    background: navy;
+    background: darkslategrey;
     position: absolute;
     width: 100%;
     left: 0;
