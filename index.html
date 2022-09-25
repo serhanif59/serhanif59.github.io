@@ -76,7 +76,7 @@
     };
 
     document.getElementById("contact").onclick = function () {
-      changeMainCont(3);
+      changeMainCont(4);
     };
 
     window.onload = function () {
@@ -136,6 +136,7 @@
         document.documentElement.offsetHeight;
       const nDivText = document.getElementById("sectionText").childElementCount;
       const inter = hScroll / nDivText;
+
       let iChange = parseInt(document.documentElement.scrollTop / inter);
       if (iChange >= nDivText) iChange = nDivText - 1;
       console.log("iChange = " + iChange);
@@ -152,6 +153,8 @@
         else color = "palevioletred";
         document.getElementById("imageRel").style.borderColor = color;
         document.getElementById("sectionText").style.color = color;
+        document.getElementById("sectionText").style.height =
+          nDivText * window.innerHeight + "px";
 
         ichangeMemo = iChange;
         changeClipSlide();
