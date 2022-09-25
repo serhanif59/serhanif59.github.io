@@ -9,12 +9,12 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  line-height: 2.5vw;
+  /*line-height: 2.5vw;*/
   font-family: "Arial", Helvetica, sans-serif;
 }
 
 header {
-  padding: 10px;
+  /*padding: 0.5vh;*/
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,7 +22,6 @@ header {
   height: 18vh;
   width: 100%;
   background-color: darkslategrey;
-  border-bottom: 1px solid;
   opacity: 0.95;
 }
 
@@ -37,6 +36,7 @@ header {
 }
 
 .bandeau {
+  margin-left: 0.5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -46,25 +46,24 @@ header {
 }
 
 .bandeau p {
-  margin: 10px;
-  font-size: 3vw;
+  font-size: 3vh;
 }
 
 #link {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 2vw;
+  bottom: 2vh;
 }
 
 ul {
   display: flex;
   flex-direction: row;
+  font-size: 1.5vh;
   font-weight: bold;
   list-style-type: none;
 }
 li {
-  margin: 10px;
-  padding-left: 5px;
+  padding-left: 0.3vh;
   border-left: 1px;
   border-left-style: solid;
 }
@@ -75,7 +74,7 @@ button:hover {
 button {
   border: none;
   font-size: 2.5vh;
-  padding: 10px 20px;
+  padding: 0.5vw 1vw;
   /*background-color: cornflowerblue;*/
   background-color: darkslategrey;
   color: lightgray;
@@ -93,7 +92,7 @@ main {
 
 #sectionText {
   width: 50%;
-  margin: 100px 0 0 5px;
+  margin: 3vh 0 0 0.5vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -102,30 +101,38 @@ main {
 #sectionText div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  background-color: lightgrey;
+  background-color: lightblue;
+  margin: 12vw 0vw 5vw 5vw;
+  padding: 1vw 2vw;
   font-size: 2vw;
 
   /*border-radius: 2%;
   border: 2px solid;*/
 }
 
-#sectionText div p,
-#sectionText div h1 {
-  text-align: center;
-  color: blue;
+#sectionText div p {
+  margin-top: 2vw;
+  text-align: left;
+  color: darkslategrey;
 }
 
 #sectionText div h1 {
   font-size: 2.5vw;
   text-align: center;
-  color: blue;
+  color: darkslategray;
+}
+
+.icon {
+  width: 1.5vw;
+  height: 1.5vw;
+  object-fit: cover;
 }
 
 #imageRel {
   display: flex;
-  margin: 40px 0 40px 0;
+  margin: 0 0 0 0;
   width: 50%;
   min-height: 300px;
   position: fixed;
@@ -134,7 +141,7 @@ main {
   top: 140px;
   justify-content: center;
   align-items: center;
-  /*background-color: white;*/
+  /*background-color: white;
   border-radius: 25%;
   /*border: 1px dotted;*/
 }
@@ -190,7 +197,7 @@ footer h1 {
     position: absolute;
     width: 100%;
     left: 0;
-    top: 0;
+    top: 18vh;
     padding: 5px 0;
     transform: scaleY(0);
     transform-origin: center top;

@@ -123,7 +123,13 @@
             document.getElementById("sectionText").childElementCount;
           document.getElementById("sectionText").style.height =
             nDivText * window.innerHeight + "px";
-
+          /*
+          for (let i = 0; i < nDivText; i++) {
+            document
+              .getElementById("sectionText")
+              .children.item(i).style.height = window.innerHeight + "px";
+          }
+          */
           changeImagesRelText();
         } else {
           alert("Section Inexistante");
@@ -142,22 +148,18 @@
       const nDivText = document.getElementById("sectionText").childElementCount;
       const inter = hScroll / nDivText;
 
-      let iChange = parseInt(document.documentElement.scrollTop / inter);
+      let iChange =
+        inter > 0 ? parseInt(document.documentElement.scrollTop / inter) : 0;
       if (iChange >= nDivText) iChange = nDivText - 1;
       console.log("iChange = " + iChange);
       console.log("nb Text = " + nDivText);
+      console.log("scrollTop = " + inter);
 
       if (ichangeMemo !== iChange) {
         clearTimeout(timeOutSlide); /* on arrete l'affichage slideshow */
         document.getElementById("imageRel").innerHTML = document.getElementById(
           "imageRel" + iChange
         ).innerHTML;
-
-        let col;
-        if (iChange % 2 === 0) color = "blue";
-        else color = "palevioletred";
-        document.getElementById("imageRel").style.borderColor = color;
-        document.getElementById("sectionText").style.color = color;
 
         ichangeMemo = iChange;
         changeClipSlide();
