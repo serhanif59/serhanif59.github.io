@@ -9,7 +9,7 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  line-height: 3ch;
+  line-height: 2.5vw;
   font-family: "Arial", Helvetica, sans-serif;
 }
 
@@ -19,7 +19,7 @@ header {
   flex-direction: row;
   align-items: center;
   position: fixed;
-  height: 160px;
+  height: 18vh;
   width: 100%;
   background-color: darkslategrey;
   border-bottom: 1px solid;
@@ -28,7 +28,7 @@ header {
 
 #photoId {
   width: 140px;
-  height: 140px;
+  height: 100%;
   background-image: url("photo.jpg");
   background-size: cover;
   background-position: center;
@@ -47,7 +47,7 @@ header {
 
 .bandeau p {
   margin: 10px;
-  font-size: 3ch;
+  font-size: 3vw;
 }
 
 #link {
@@ -74,7 +74,7 @@ button:hover {
 }
 button {
   border: none;
-  font-size: 20px;
+  font-size: 2.5vh;
   padding: 10px 20px;
   /*background-color: cornflowerblue;*/
   background-color: darkslategrey;
@@ -92,12 +92,11 @@ main {
 }
 
 #sectionText {
-  margin: 100px 0 0 0;
+  width: 50%;
+  margin: 100px 0 0 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 50%;
-  height: 1500px;
 }
 
 #sectionText div {
@@ -106,16 +105,20 @@ main {
   justify-content: space-around;
   align-items: center;
   background-color: lightgrey;
-  padding: 10px;
-  margin: 0 10px 0 10px;
+  font-size: 2vw;
 
-  border-radius: 2%;
-  border: 2px solid;
+  /*border-radius: 2%;
+  border: 2px solid;*/
 }
 
 #sectionText div p,
 #sectionText div h1 {
-  margin: 10px;
+  text-align: center;
+  color: blue;
+}
+
+#sectionText div h1 {
+  font-size: 2.5vw;
   text-align: center;
   color: blue;
 }
@@ -137,8 +140,8 @@ main {
 }
 
 #imageRel img {
-  width: 70%;
-  height: 70%;
+  width: 90%;
+  height: 90%;
   object-fit: scale-down;
 }
 
@@ -152,7 +155,6 @@ footer {
   height: 25px;
   align-items: center;
   color: lightgray;
-  font-size: 10px;
   background-color: darkslategrey;
   position: fixed;
   bottom: 0;
@@ -162,7 +164,7 @@ footer {
 }
 footer h1 {
   margin: 10px;
-  font-size: 12px;
+  font-size: 2vh;
 }
 
 /* Fading animation */
@@ -188,7 +190,7 @@ footer h1 {
     position: absolute;
     width: 100%;
     left: 0;
-    top: 100%;
+    top: 0;
     padding: 5px 0;
     transform: scaleY(0);
     transform-origin: center top;

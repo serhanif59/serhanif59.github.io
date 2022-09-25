@@ -119,6 +119,11 @@
           document.documentElement.scrollTop = 0; /*remise a zero barre defilement */
           ichangeMemo = -1;
           clearTimeout(timeOutSlide); /* on arrete l'affichage slideshow */
+          const nDivText =
+            document.getElementById("sectionText").childElementCount;
+          document.getElementById("sectionText").style.height =
+            nDivText * window.innerHeight + "px";
+
           changeImagesRelText();
         } else {
           alert("Section Inexistante");
@@ -153,8 +158,6 @@
         else color = "palevioletred";
         document.getElementById("imageRel").style.borderColor = color;
         document.getElementById("sectionText").style.color = color;
-        document.getElementById("sectionText").style.height =
-          nDivText * window.innerHeight + "px";
 
         ichangeMemo = iChange;
         changeClipSlide();
