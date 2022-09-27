@@ -103,8 +103,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: lightblue;
-  margin: 12vw 0vw 5vw 5vw;
+  background-color: lightgray;
+  margin: 12vw 1vw 1vw 1vw;
   padding: 1vw 2vw;
   font-size: 2vw;
 
@@ -132,7 +132,7 @@ main {
 
 #imageRel {
   display: flex;
-  margin: 0 0 0 0;
+
   width: 50%;
   min-height: 300px;
   position: fixed;
@@ -141,12 +141,16 @@ main {
   top: 140px;
   justify-content: center;
   align-items: center;
-  /*background-color: white;
+  /*
+  background-color: white;
+  opacity: 0.9;
+ 
   border-radius: 25%;
-  /*border: 1px dotted;*/
+  border: 1px dotted;*/
 }
 
 #imageRel img {
+  margin: 10%;
   width: 90%;
   height: 90%;
   object-fit: scale-down;

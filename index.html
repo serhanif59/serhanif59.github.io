@@ -153,16 +153,23 @@
       if (iChange >= nDivText) iChange = nDivText - 1;
       console.log("iChange = " + iChange);
       console.log("nb Text = " + nDivText);
-      console.log("scrollTop = " + inter);
+      console.log("ichangeMemo = " + ichangeMemo);
 
       if (ichangeMemo !== iChange) {
         clearTimeout(timeOutSlide); /* on arrete l'affichage slideshow */
-        document.getElementById("imageRel").innerHTML = document.getElementById(
-          "imageRel" + iChange
-        ).innerHTML;
+        let currImages = document.getElementById("imageRel");
+        let image = document.getElementById("imageRel" + iChange);
+        if (image) {
+          document.getElementById("imageRel").innerHTML = image.innerHTML;
 
+          document.getElementById("imageRel").style.width = "50%";
+          document.getElementById("sectionText").style.width = "50%";
+          changeClipSlide();
+        } else {
+          document.getElementById("imageRel").style.width = "0%";
+          document.getElementById("sectionText").style.width = "100%";
+        }
         ichangeMemo = iChange;
-        changeClipSlide();
       }
       if (!timeOutSlide) changeClipSlide();
     }
