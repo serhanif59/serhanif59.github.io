@@ -134,7 +134,7 @@ main {
   display: flex;
 
   width: 50%;
-  min-height: 300px;
+  /*min-height: 300px;*/
   position: fixed;
   right: 0;
   bottom: 70px;
@@ -193,7 +193,7 @@ footer h1 {
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 500px) {
   ul {
     display: flex;
     flex-direction: column;
@@ -265,6 +265,6 @@ footer h1 {
     visibility: hidden;
   }
   #sectionText {
-    height: 2000px;
+    /*height: 800px;*/
   }
 }
