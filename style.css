@@ -92,7 +92,7 @@ main {
 
 #sectionText {
   width: 50%;
-  margin: 3vh 0 0 0.5vh;
+  margin: 0 0 0 0.5vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -132,25 +132,21 @@ main {
 
 #imageRel {
   display: flex;
+  flex-direction: column;
 
   width: 50%;
   /*min-height: 300px;*/
+  padding: 10% 0 10% 0;
   position: fixed;
   right: 0;
   bottom: 70px;
   top: 140px;
-  justify-content: center;
+  justify-content: top;
   align-items: center;
-  /*
-  background-color: white;
-  opacity: 0.9;
- 
-  border-radius: 25%;
-  border: 1px dotted;*/
+  color: darkslategrey;
 }
 
 #imageRel img {
-  margin: 10%;
   width: 90%;
   height: 90%;
   object-fit: scale-down;
@@ -176,6 +172,10 @@ footer {
 footer h1 {
   margin: 10px;
   font-size: 2vh;
+}
+
+#div-bullets {
+  display: flex;
 }
 
 /* Fading animation */
@@ -263,8 +263,5 @@ footer h1 {
 
   #imageRel.open {
     visibility: hidden;
-  }
-  #sectionText {
-    /*height: 800px;*/
   }
 }

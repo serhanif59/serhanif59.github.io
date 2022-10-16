@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>portfolio</title>
+  <title>Serhani Ali</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -63,15 +63,14 @@
       changeMainCont(1);
     };
     /*
-    document.getElementById("experience").onclick = function () {
-      changeMainCont(2);
-    };
-    document.getElementById("technology").onclick = function () {
-      changeMainCont(3);
-    };
-*/
+        document.getElementById("experience").onclick = function () {
+          changeMainCont(2);
+        };
+        document.getElementById("technology").onclick = function () {
+          changeMainCont(3);
+        };
+    */
     document.getElementById("contact").onclick = function () {
-      console.log("contact");
       changeMainCont(4);
     };
 
@@ -85,15 +84,27 @@
 
     function changeClipSlide() {
       const image = document.getElementById("imageRel");
-
+      let countImages = 0;
+      let divBullets, titleImage;
       for (let i = 0; i < image.children.length; i++) {
-        image.children.item(i).style.display = "none";
+        if (image.children.item(i).tagName == "IMG") {
+          countImages++;
+          image.children.item(i).style.display = "none";
+        } else {
+          if (image.children.item(i).tagName == "H3")
+            titleImage = image.children.item(i);
+          else divBullets = image.children.item(i);
+        }
       }
+      for (let i = 0; i < divBullets.children.length; i++)
+        divBullets.children.item(i).checked = false;
       idSlide++;
-      if (idSlide > image.children.length) {
+      if (idSlide > countImages) {
         idSlide = 1;
       }
-      image.children.item(idSlide - 1).style.display = "block";
+      image.children.item(idSlide).style.display = "block";
+      divBullets.children.item(idSlide - 1).checked = true;
+      titleImage.innerHTML = image.children.item(idSlide).alt;
       timeOutSlide = setTimeout(changeClipSlide, 2000);
     }
 
@@ -122,12 +133,12 @@
               nDivText * document.getElementById("imageRel").clientHeight * 1.3
             ) + "px";
           /*
-          for (let i = 0; i < nDivText; i++) {
-            document
-              .getElementById("sectionText")
-              .children.item(i).style.height = window.innerHeight + "px";
-          }
-          */
+              for (let i = 0; i < nDivText; i++) {
+                document
+                  .getElementById("sectionText")
+                  .children.item(i).style.height = window.innerHeight + "px";
+              }
+              */
           changeImagesRelText();
         } else {
           alert("Section Inexistante");
@@ -149,24 +160,27 @@
       let iChange =
         inter > 0 ? parseInt(document.documentElement.scrollTop / inter) : 0;
       if (iChange >= nDivText) iChange = nDivText - 1;
-      /*
-      console.log("iChange = " + iChange);
-      console.log("nb Text = " + nDivText);
-      console.log("ichangeMemo = " + ichangeMemo);
-*/
+
       if (ichangeMemo !== iChange) {
         clearTimeout(timeOutSlide); /* on arrete l'affichage slideshow */
-        let currImages = document.getElementById("imageRel");
-        let image = document.getElementById("imageRel" + iChange);
-        if (image) {
-          document.getElementById("imageRel").innerHTML = image.innerHTML;
-
-          document.getElementById("imageRel").style.width = "50%";
-          document.getElementById("sectionText").style.width = "50%";
+        const currImages = document.getElementById("imageRel");
+        const newImages = document.getElementById("imageRel" + iChange);
+        const sectionText = document.getElementById("sectionText");
+        if (newImages) {
+          let bullets = "<div id='div-bullets'>";
+          currImages.innerHTML =
+            "<h3 id = 'titleImage'></h3>" + newImages.innerHTML;
+          currImages.style.width = "50%";
+          sectionText.style.width = "50%";
+          const nbImages = currImages.childElementCount;
+          for (let i = 0; i < nbImages; i++)
+            bullets += "<input id = 'bullet" + i + "' type = 'radio'/>";
+          bullets += "</div>";
+          currImages.innerHTML += bullets;
           changeClipSlide();
         } else {
-          document.getElementById("imageRel").style.width = "0%";
-          document.getElementById("sectionText").style.width = "100%";
+          currImages.style.width = "0%";
+          sectionText.style.width = "100%";
         }
         ichangeMemo = iChange;
       }
